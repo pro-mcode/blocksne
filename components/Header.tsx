@@ -4,7 +4,7 @@ import UserDropdown from "./UserDropdown";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 header border boder-red-60">
+    <header className="sticky top-0 header border border-red-600">
       <div className="header-wrapper">
         <Link href={"/"} className="text-white">
           BlockSNE
