@@ -115,12 +115,7 @@ export const searchStocks = cache(
     try {
       const token = process.env.FINNHUB_API_KEY ?? NEXT_PUBLIC_FINNHUB_API_KEY;
       if (!token) {
-        // If no token, log and return empty to avoid throwing per requirements
-        console.error(
-          "Error in stock search:",
-          new Error("FINNHUB API key is not configured")
-        );
-        return [];
+        throw new Error("FINNHUB API key is not configured");
       }
 
       const trimmed = typeof query === "string" ? query.trim() : "";
