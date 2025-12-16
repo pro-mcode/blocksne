@@ -111,7 +111,7 @@ export const sendDailyNewsSummary = inngest.createFunction(
           JSON.stringify(articles, null, 2)
         );
 
-        const response = await step.ai.infer(`summarize-news-${user.email}`, {
+        const response = await step.ai.infer(`summarize-news-${user.email.replace(/[^a-zA-Z0-9]/g, '-')}`, {
           model: step.ai.models.gemini({ model: "gemini-2.5-flash-lite" }),
           body: {
             contents: [{ role: "user", parts: [{ text: prompt }] }],
