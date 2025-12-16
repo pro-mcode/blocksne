@@ -1,7 +1,14 @@
+declare global {
 declare module "*.css";
 declare module "*.scss";
 
 declare global {
+  type SignInFormData = {
+    // ... rest of type definitions
+  }
+  // ... remaining declarations
+}
+
   type SignInFormData = {
     email: string;
     password: string;
