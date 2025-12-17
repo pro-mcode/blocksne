@@ -67,7 +67,18 @@ export default function SearchCommand({
   return (
     <>
       {renderAs === "text" ? (
-        <span onClick={() => setOpen(true)} className="search-text">
+        <span
+          onClick={() => setOpen(true)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setOpen(true);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          className="search-text"
+        >
           {label}
         </span>
       ) : (
