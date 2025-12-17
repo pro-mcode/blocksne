@@ -21,8 +21,9 @@ export default function SearchCommand({
   const [open, setOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
-  const [stocks, setStocks] =
-    useState<StockWithWatchlistStatus[]>(initialStocks);
+  const [stocks, setStocks] = useState<StockWithWatchlistStatus[]>(
+    initialStocks ?? []
+  );
 
   const isSearchMode = !!searchTerm.trim();
   const displayStocks = isSearchMode ? stocks : stocks?.slice(0, 10);
@@ -39,8 +40,7 @@ export default function SearchCommand({
   }, []);
 
   const handleSearch = async () => {
-    if (!isSearchMode) return setStocks(initialStocks);
-
+    if (!isSearchMode) return setStocks(initialStocks ?? []);
     setLoading(true);
     try {
       const results = await searchStocks(searchTerm.trim());
@@ -61,7 +61,7 @@ export default function SearchCommand({
   const handleSelectStock = () => {
     setOpen(false);
     setSearchTerm("");
-    setStocks(initialStocks);
+    setStocks(initialStocks ?? []);
   };
 
   return (
