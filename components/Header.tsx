@@ -13,7 +13,6 @@ const Header = async ({ user }: { user: User }) => {
   }
   return (
     <header className="sticky top-0 header">
-    <header className="sticky top-0 header">
       <div className="header-wrapper">
         <Link href={"/"} className="text-white">
           BlockSNE
