@@ -56,7 +56,8 @@ export default function SearchCommand({
 
   useEffect(() => {
     debouncedSearch();
-  }, [searchTerm, debouncedSearch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm]);
 
   const handleSelectStock = () => {
     setOpen(false);
@@ -70,7 +71,7 @@ export default function SearchCommand({
         <span
           onClick={() => setOpen(true)}
           onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
               setOpen(true);
             }
